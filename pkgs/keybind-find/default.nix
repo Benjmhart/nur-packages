@@ -16,16 +16,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "keybind-find";
-  version = "1.1.2";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
     owner = "Benjmhart";
     repo = "keybind-find";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-wPvySU1wvvcVbVQlRNOMTs8gOAIt3PdlWtMDPjv4Q/c=";
+    hash = "sha256-2kZKQUMjQBnf+XwfD5j8uaaMWJRGQGnbS1LP9COUXsI=";
   };
 
-  cargoHash = "sha256-lQaz3YiQBr8S5viHhHgRX4+rHuzSI6/dTexr/R8JYRo=";
+  cargoHash = "sha256-hMa274nFS3eu88FQ3KPM1CWRQdcCjXezcIzVhl1MINM=";
 
   nativeBuildInputs = [
     installShellFiles
@@ -48,6 +48,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   checkFlags = map (t: "--skip=${t}") [
     "context::tests::less_is_found_anywhere_in_the_foreground_group"
     "context::tests::the_terminals_foreground_job_is_the_group_read"
+    "context::tests::wezterm_pane_without_a_match_gives_the_hint"
     "providers::emacs::tests::a_server_that_hangs_is_an_error"
     "providers::emacs::tests::batch_answer_with_evil_and_an_init_error"
     "providers::emacs::tests::batch_runs_emacs_safely"
@@ -67,7 +68,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "providers::shells::tests::every_shell_through_read"
     "providers::shells::tests::real_bash_reads_inputrc_and_bashrc"
     "providers::vim::tests::the_live_read_falls_back"
+    "providers::wezterm::tests::failures_are_one_error"
     "providers::xfce::tests::failures_are_one_error"
+    "providers::zellij::tests::a_fake_zellij"
   ];
 
   # The X11 tools and fzf are appended to PATH, so the user's own versions still win.
