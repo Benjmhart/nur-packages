@@ -16,16 +16,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "keybind-find";
-  version = "1.2.0";
+  version = "1.4.0";
 
   src = fetchFromGitHub {
     owner = "Benjmhart";
     repo = "keybind-find";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-2kZKQUMjQBnf+XwfD5j8uaaMWJRGQGnbS1LP9COUXsI=";
+    hash = "sha256-oYmYIqFWHEz7HFpImgMXt7/q975U1QGBdhnMyby1zNY=";
   };
 
-  cargoHash = "sha256-hMa274nFS3eu88FQ3KPM1CWRQdcCjXezcIzVhl1MINM=";
+  cargoHash = "sha256-c/QH/wLM3LOJl4Z3GpqDz8HZGnFm1FmhcSkWIRbXT6k=";
 
   nativeBuildInputs = [
     installShellFiles
@@ -60,10 +60,16 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "providers::gnome::tests::mixed_values"
     "providers::gnome::tests::upstream_wm_defaults"
     "providers::gnome_terminal::tests::failures_are_one_error"
+    "providers::kdl_v1::tests::deep_texts_are_one_error"
+    "providers::lazygit::tests::version_from_the_focused_binary_and_the_repo_files"
     "providers::less::tests::missing_or_hanging_less_is_an_error"
     "providers::less::tests::user_keys_need_less_582"
     "providers::mpv::tests::flatpak_config_dir_reaches_mpv"
     "providers::mpv::tests::temp_script_removed_after_success_failure_and_timeout"
+    "providers::pinned::tests::a_probe_that_fails_is_unknown"
+    "providers::qutebrowser::tests::the_fallback"
+    "providers::qutebrowser::tests::the_interpreter"
+    "providers::qutebrowser::tests::the_live_read"
     "providers::shells::tests::a_background_job_holding_stdout_keeps_the_keymap_and_is_killed"
     "providers::shells::tests::every_shell_through_read"
     "providers::shells::tests::real_bash_reads_inputrc_and_bashrc"
@@ -89,7 +95,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
 
   meta = {
-    description = "Search the keybindings for the focused window and run the one you pick";
+    description = "A command palette for your whole workspace, built from the keybindings of your window manager and apps";
     homepage = "https://github.com/Benjmhart/keybind-find";
     changelog = "https://github.com/Benjmhart/keybind-find/blob/v${finalAttrs.version}/CHANGELOG.md";
     license = lib.licenses.mit;
