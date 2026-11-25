@@ -16,16 +16,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "keybind-find";
-  version = "1.4.0";
+  version = "1.4.1";
 
   src = fetchFromGitHub {
     owner = "Benjmhart";
     repo = "keybind-find";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-oYmYIqFWHEz7HFpImgMXt7/q975U1QGBdhnMyby1zNY=";
+    hash = "sha256-r0CNHsdbgyMCEScwbJ3pN9e6APYQ0Xgy5lKaMFQffp0=";
   };
 
-  cargoHash = "sha256-c/QH/wLM3LOJl4Z3GpqDz8HZGnFm1FmhcSkWIRbXT6k=";
+  cargoHash = "sha256-6GKcM76NqMM/JqmFM0Bt86EgT6CzLMtbw3Ed6E2bK40=";
 
   nativeBuildInputs = [
     installShellFiles
@@ -60,7 +60,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "providers::gnome::tests::mixed_values"
     "providers::gnome::tests::upstream_wm_defaults"
     "providers::gnome_terminal::tests::failures_are_one_error"
-    "providers::kdl_v1::tests::deep_texts_are_one_error"
     "providers::lazygit::tests::version_from_the_focused_binary_and_the_repo_files"
     "providers::less::tests::missing_or_hanging_less_is_an_error"
     "providers::less::tests::user_keys_need_less_582"
